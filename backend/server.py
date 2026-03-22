@@ -9,7 +9,7 @@ from chatbot import NCTAC # type: ignore
 import uuid
 
 app = Flask(__name__)
-CORS(app, origins=["https://illustrious-halva-071dbe.netlify.app"])
+CORS(app)
 
 sessions = {}
 
@@ -62,5 +62,5 @@ def health():
 
 
 if __name__ == "__main__":
-    print("NCT-AC API running at https://nct-ac-1.onrender.com")
+    print("NCT-AC API running at http://localhost:5001")
     app.run(debug=True, host="0.0.0.0", port=5001)

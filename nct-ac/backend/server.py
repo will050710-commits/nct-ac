@@ -8,7 +8,7 @@ from flask_cors import CORS # type: ignore
 from chatbot import NCTAC # type: ignore
 import uuid
 import os
-port = int(os.environ.get("PORT", 5001))
+
 app = Flask(__name__)
 CORS(app, origins=["https://illustrious-halva-071dbe.netlify.app"])
 
@@ -64,6 +64,5 @@ def health():
 
 if __name__ == "__main__":
     print("NCT-AC API running at https://nct-ac-1.onrender.com")
-    
-    app.run(debug=True, host="0.0.0.0", port=port)
-
+    port = int(os.environ.get("PORT", 5001))
+    app.run(debug=False, host="0.0.0.0", port=port)

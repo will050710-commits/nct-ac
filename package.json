@@ -1,11 +1,4 @@
 {
-HEAD
-  "devDependencies": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
-  }
-}
-
   "name": "nct-ac",
   "version": "0.1.0",
   "private": true,
@@ -32,4 +25,3 @@ HEAD
     "typescript": "^5"
   }
 }
-1d5e0e5ba7df524d4a7672dc00a5465af3b898a2

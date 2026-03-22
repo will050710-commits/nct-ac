@@ -148,7 +148,7 @@ export default function NCTACPage(): JSX.Element {
 
   async function initSession(): Promise<void> {
     try {
-      const res = await fetch("http://localhost:5001/api/session/new", {
+      const res = await fetch("https://nct-ac-1.onrender.com/api/session/new", {
         method: "POST",
       });
       const data = await res.json();
@@ -162,7 +162,7 @@ export default function NCTACPage(): JSX.Element {
     let sid = sessionId;
     if (!sid || sid.startsWith("offline-")) {
       try {
-        const res = await fetch("http://localhost:5001/api/session/new", {
+        const res = await fetch("https://nct-ac-1.onrender.com/api/session/new", {
           method: "POST",
         });
         sid = (await res.json()).session_id;
@@ -197,7 +197,7 @@ export default function NCTACPage(): JSX.Element {
     }
 
     try {
-      const res = await fetch("http://localhost:5001/api/chat", {
+      const res = await fetch("https://nct-ac-1.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ session_id: sid, message: msg }),

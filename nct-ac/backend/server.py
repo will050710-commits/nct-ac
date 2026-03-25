@@ -14,7 +14,7 @@ CORS(app,
      origins=["https://nct-ac-pbvl.vercel.app", "https://illustrious-halva-071dbe.netlify.app"],
      methods=["GET", "POST", "OPTIONS"],
      allow_headers=["Content-Type"])
-
+sessions = {}
 @app.before_request
 def handle_options():
     if request.method == "OPTIONS":

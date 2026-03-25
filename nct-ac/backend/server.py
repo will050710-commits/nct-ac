@@ -3,17 +3,22 @@ NCT-AC Flask API Server
 Admissions Consulting Chatbot — Groq Free Tier
 """
 
-from flask import Flask, request, jsonify # type: ignore
-from flask_cors import CORS # type: ignore
-from chatbot import NCTAC # type: ignore
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from chatbot import NCTAC
 import uuid
 import os
 
 app = Flask(__name__)
-CORS(app, origins=[
-    "https://nct-ac-pbvl.vercel.app"
-])
-sessions = {}
+CORS(app, 
+     origins=["https://nct-ac-pbvl.vercel.app", "https://illustrious-halva-071dbe.netlify.app"],
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type"])
+
+@app.before_request
+def handle_options():
+    if request.method == "OPTIONS":
+        return "", 200
 
 def get_session(session_id: str) -> NCTAC:
     if session_id not in sessions:

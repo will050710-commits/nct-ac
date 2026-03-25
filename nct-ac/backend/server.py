@@ -60,8 +60,10 @@ def history(sid):
 @app.route("/api/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok", "bot": "NCT-AC", "model": "llama-3.3-70b-versatile"})
-
-
+@app.route("/api/debug", methods=["GET"])
+def debug():
+    key = os.environ.get("GROQ_API_KEY", "NOT FOUND")
+    return jsonify({"key_found": key != "NOT FOUND", "key_prefix": key[:8] if key != "NOT FOUND" else "none"})
 if __name__ == "__main__":
     print("NCT-AC API running at https://nct-ac-1.onrender.com")
     port = int(os.environ.get("PORT", 5001))

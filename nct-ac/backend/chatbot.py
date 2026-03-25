@@ -133,7 +133,9 @@ INTENT_PREFIXES = {
 # ─────────────────────────────────────────────
 
 class NCTAC:
-    def __init__(self, api_key: str = GROQ_API_KEY):
+    def __init__(self, api_key: str = None):
+        if api_key is None:
+            api_key = os.getenv("GROQ_API_KEY")
         self.client = Groq(api_key=api_key)
         self.conversation_history = []
         self.model = MODEL

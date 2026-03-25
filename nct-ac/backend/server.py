@@ -10,8 +10,10 @@ import uuid
 import os
 
 app = Flask(__name__)
-CORS(app, origins=["https://illustrious-halva-071dbe.netlify.app"])
-
+CORS(app, origins=[
+    "https://illustrious-halva-071dbe.netlify.app",
+    "https://nct-ac-pbvl.vercel.app"
+])
 sessions = {}
 
 def get_session(session_id: str) -> NCTAC:

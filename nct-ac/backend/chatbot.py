@@ -12,7 +12,7 @@ from groq import Groq # type: ignore
 # Configuration
 # ─────────────────────────────────────────────
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "your-groq-api-key-here")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "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")
 MODEL = "llama-3.3-70b-versatile"
 MAX_TOKENS = 2048
 
